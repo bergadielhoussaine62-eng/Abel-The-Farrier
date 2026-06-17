@@ -1,483 +1,424 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lucky Foot Hoof Care | Monument, CO</title>
-  <meta name="description" content="Professional farrier services in Monument & Colorado Springs, CO. Hoof trimming, shoeing, and rehabilitation by Mike." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --brown: #6B4226; --tan: #C9A97A; --cream: #FAF7F2;
-      --white: #FFFFFF; --dark: #1A1209; --gray: #6B6456;
-      --light: #F2EDE5; --border: #E0D8CC;
-      --font-display: 'Playfair Display', Georgia, serif;
-      --font-body: 'Inter', system-ui, sans-serif;
-      --radius: 10px; --shadow: 0 2px 16px rgba(26,18,9,0.07);
-    }
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--font-body); font-size: 16px; line-height: 1.7; color: var(--dark); background: var(--white); }
-    h1,h2,h3 { font-family: var(--font-display); line-height: 1.25; color: var(--dark); }
-    a { color: var(--brown); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abel The Farrier | Northern Colorado</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* UTILITIES */
-    .container { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
-    .section { padding: 5rem 0; }
-    .bg-light { background: var(--light); }
-    .center { text-align: center; }
-    .hidden { display: none !important; }
-    .page { display: none; }
-    .page.active { display: block; }
-    .label { display: block; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--tan); margin-bottom: 0.6rem; }
-    .label.center { text-align: center; }
+  :root {
+    --navy:   #1B3A5C;
+    --blue:   #2E6DA4;
+    --sky:    #EAF3FB;
+    --steel:  #5B8DB8;
+    --white:  #FFFFFF;
+    --gray:   #6B7280;
+    --dark:   #111827;
+    --border: #D6E6F5;
+  }
 
-    /* BUTTONS */
-    .btn { display: inline-block; padding: 0.75rem 1.75rem; border-radius: var(--radius); font-family: var(--font-body); font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: all 0.2s; border: 2px solid transparent; text-decoration: none; }
-    .btn-primary { background: var(--brown); color: var(--white); border-color: var(--brown); }
-    .btn-primary:hover { background: #4e2f1a; border-color: #4e2f1a; text-decoration: none; color: var(--white); }
-    .btn-outline { background: transparent; color: var(--brown); border-color: var(--brown); }
-    .btn-outline:hover { background: var(--brown); color: var(--white); text-decoration: none; }
-    .full-width { width: 100%; text-align: center; }
+  html { scroll-behavior: smooth; }
 
-    /* NAV */
-    .nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; }
-    .nav-logo { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--brown); text-decoration: none; cursor: pointer; }
-    .nav-links { list-style: none; display: flex; gap: 2rem; }
-    .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--gray); text-decoration: none; transition: color 0.15s; cursor: pointer; }
-    .nav-links a:hover, .nav-links a.active { color: var(--brown); }
-    .nav-toggle { display: none; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--brown); }
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--dark);
+    background: var(--white);
+    line-height: 1.6;
+  }
 
-    /* HERO */
-    .hero { background: var(--cream); padding: 6rem 2rem 5rem; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; right: -80px; top: -80px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(201,169,122,0.15) 0%, transparent 70%); pointer-events: none; }
-    .hero-content { max-width: 660px; margin: 0 auto; text-align: center; }
-    .hero-eyebrow { display: inline-block; background: var(--tan); color: var(--white); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.9rem; border-radius: 100px; margin-bottom: 1.5rem; }
-    .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: 1.2rem; }
-    .hero p { font-size: 1.1rem; color: var(--gray); margin-bottom: 2.2rem; }
-    .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .hero-badge { margin-top: 3rem; text-align: center; font-size: 0.85rem; color: var(--gray); }
-    .badge-stars { color: #F59E0B; font-size: 1rem; margin-right: 0.4rem; }
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 6%; height: 68px;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem; font-weight: 600;
+    color: var(--navy); letter-spacing: 0.01em;
+  }
+  .logo span { color: var(--blue); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; font-size: 0.875rem; font-weight: 500;
+    color: var(--gray); transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--blue); }
+  .nav-cta {
+    background: var(--blue); color: var(--white);
+    padding: 0.5rem 1.25rem; border-radius: 6px;
+    font-size: 0.875rem; font-weight: 500;
+    text-decoration: none; transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--navy); }
 
-    /* PAGE HERO */
-    .page-hero { background: var(--cream); padding: 4rem 0 3rem; text-align: center; }
-    .page-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 0.8rem; }
-    .page-hero p { font-size: 1.05rem; color: var(--gray); max-width: 560px; margin: 0 auto; }
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 60%, var(--steel) 100%);
+    padding: 120px 6% 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  /* Horseshoe watermark */
+  .hero::after {
+    content: '🐴';
+    position: absolute; right: 8%; bottom: 10%;
+    font-size: 18rem; opacity: 0.06;
+    pointer-events: none;
+  }
+  .hero-content { position: relative; max-width: 620px; }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.9);
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.35rem 0.9rem; border-radius: 20px;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 600; color: var(--white);
+    line-height: 1.15; margin-bottom: 1.25rem;
+  }
+  .hero h1 em { font-style: italic; color: rgba(255,255,255,0.75); }
+  .hero p {
+    font-size: 1.1rem; color: rgba(255,255,255,0.8);
+    max-width: 480px; margin-bottom: 2.5rem; font-weight: 300;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--white); color: var(--navy);
+    padding: 0.85rem 2rem; border-radius: 8px;
+    font-weight: 600; font-size: 0.95rem;
+    text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+  .btn-ghost {
+    background: transparent; color: var(--white);
+    padding: 0.85rem 2rem; border-radius: 8px;
+    font-weight: 500; font-size: 0.95rem;
+    text-decoration: none; border: 1.5px solid rgba(255,255,255,0.4);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
 
-    /* INTRO */
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-    .intro-text h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 1rem; }
-    .intro-text p { color: var(--gray); margin-bottom: 0.8rem; }
-    .intro-stats { display: flex; flex-direction: column; gap: 1.5rem; }
-    .stat { background: var(--cream); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; text-align: center; }
-    .stat-num { display: block; font-family: var(--font-display); font-size: 2.4rem; color: var(--brown); line-height: 1; margin-bottom: 0.3rem; }
-    .stat-label { font-size: 0.85rem; color: var(--gray); }
+  /* ── STATS BAR ── */
+  .stats {
+    background: var(--navy);
+    display: flex; justify-content: center; flex-wrap: wrap;
+    gap: 0;
+  }
+  .stat {
+    padding: 1.5rem 3rem; text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    flex: 1; min-width: 160px;
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 600; color: var(--white);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.78rem; color: rgba(255,255,255,0.55);
+    text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.3rem;
+  }
 
-    /* CARDS */
-    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
-    .card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem 1.5rem; transition: box-shadow 0.2s; }
-    .card:hover { box-shadow: var(--shadow); }
-    .card-icon { font-size: 2rem; margin-bottom: 1rem; }
-    .card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
-    .card p { font-size: 0.9rem; color: var(--gray); }
+  /* ── SECTIONS ── */
+  section { padding: 90px 6%; }
+  .section-label {
+    font-size: 0.75rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--blue); margin-bottom: 0.75rem;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 600; color: var(--navy); line-height: 1.2;
+  }
+  .section-intro {
+    font-size: 1.05rem; color: var(--gray);
+    max-width: 560px; margin-top: 1rem;
+  }
 
-    /* REVIEWS */
-    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
-    .review-card { background: var(--cream); border-radius: var(--radius); padding: 1.5rem; border-left: 3px solid var(--tan); }
-    .review-card p { font-size: 0.9rem; color: var(--dark); font-style: italic; margin-bottom: 0.8rem; line-height: 1.6; }
-    .reviewer { font-size: 0.8rem; color: var(--gray); font-weight: 500; }
-    .rating-summary { margin-top: 1rem; display: flex; align-items: center; gap: 0.8rem; justify-content: center; }
-    .big-stars { color: #F59E0B; font-size: 1.5rem; }
-    .big-rating { font-family: var(--font-display); font-size: 2rem; color: var(--brown); }
-    .rating-meta { color: var(--gray); font-size: 0.9rem; }
-    .reviews-full { display: flex; flex-direction: column; gap: 1.5rem; max-width: 760px; margin: 0 auto; }
-    .review-card-full { background: var(--cream); border-radius: var(--radius); padding: 2rem; border-left: 4px solid var(--tan); }
-    .review-stars { color: #F59E0B; margin-bottom: 0.8rem; font-size: 1rem; }
-    .review-card-full p { font-style: italic; color: var(--dark); margin-bottom: 1rem; line-height: 1.7; }
-    .review-card-full .reviewer { font-size: 0.85rem; color: var(--gray); font-weight: 500; }
+  /* ── SERVICES ── */
+  .services { background: var(--sky); }
+  .services-header { text-align: center; margin-bottom: 3.5rem; }
+  .services-header .section-intro { margin: 1rem auto 0; }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem; max-width: 1100px; margin: 0 auto;
+  }
+  .card {
+    background: var(--white);
+    border-radius: 12px; padding: 2rem;
+    border: 1px solid var(--border);
+    transition: box-shadow 0.25s, transform 0.25s;
+  }
+  .card:hover { box-shadow: 0 8px 30px rgba(46,109,164,0.12); transform: translateY(-3px); }
+  .card-icon {
+    width: 48px; height: 48px; border-radius: 10px;
+    background: var(--sky); display: flex; align-items: center;
+    justify-content: center; font-size: 1.5rem; margin-bottom: 1.25rem;
+  }
+  .card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem; color: var(--navy); margin-bottom: 0.6rem;
+  }
+  .card p { font-size: 0.9rem; color: var(--gray); line-height: 1.65; }
 
-    /* SERVICES */
-    .service-item { display: flex; gap: 2rem; padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
-    .service-item:last-child { border-bottom: none; }
-    .service-icon { font-size: 2.5rem; flex-shrink: 0; width: 3rem; text-align: center; padding-top: 0.2rem; }
-    .service-body h2 { font-size: 1.5rem; margin-bottom: 0.8rem; }
-    .service-body p { color: var(--gray); margin-bottom: 0.8rem; }
-    .service-list { color: var(--gray); padding-left: 1.2rem; margin-top: 0.5rem; }
-    .service-list li { margin-bottom: 0.4rem; }
+  /* ── ABOUT ── */
+  .about { background: var(--white); }
+  .about-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: center; max-width: 1100px; margin: 0 auto;
+  }
+  .about-visual {
+    background: linear-gradient(135deg, var(--sky), var(--border));
+    border-radius: 16px; aspect-ratio: 4/3;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 8rem; position: relative; overflow: hidden;
+  }
+  .about-visual::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(46,109,164,0.08), transparent);
+    border-radius: 16px;
+  }
+  .about-text .section-label { margin-bottom: 0.5rem; }
+  .about-text h2 { margin-bottom: 1.25rem; }
+  .about-text p { color: var(--gray); margin-bottom: 1rem; font-size: 0.97rem; }
+  .traits { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.75rem; }
+  .trait {
+    display: flex; align-items: center; gap: 0.75rem;
+    font-size: 0.9rem; color: var(--dark); font-weight: 500;
+  }
+  .trait-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--blue); flex-shrink: 0;
+  }
 
-    /* CONTACT */
-    .contact-layout { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; }
-    .contact-info h2 { font-size: 1.5rem; margin-bottom: 1.5rem; }
-    .contact-item { display: flex; gap: 1rem; margin-bottom: 1.5rem; align-items: flex-start; }
-    .contact-icon { font-size: 1.4rem; flex-shrink: 0; }
-    .contact-item strong { display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--gray); margin-bottom: 0.2rem; }
-    .contact-item a { color: var(--dark); font-weight: 500; }
-    .contact-item a:hover { color: var(--brown); }
-    .contact-form-wrap h2 { font-size: 1.5rem; margin-bottom: 1.5rem; }
-    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
-    .form-group label { font-size: 0.85rem; font-weight: 500; color: var(--dark); }
-    .form-group input, .form-group select, .form-group textarea { border: 1px solid var(--border); border-radius: var(--radius); padding: 0.7rem 1rem; font-family: var(--font-body); font-size: 0.95rem; color: var(--dark); background: var(--white); transition: border-color 0.15s; outline: none; }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--tan); box-shadow: 0 0 0 3px rgba(201,169,122,0.15); }
-    .form-note { font-size: 0.8rem; color: var(--gray); text-align: center; margin-top: 0.2rem; }
-    .form-success { background: #d1fae5; border: 1px solid #6ee7b7; color: #065f46; padding: 1rem 1.2rem; border-radius: var(--radius); margin-bottom: 1rem; font-size: 0.9rem; }
-    .map-section { line-height: 0; }
+  /* ── SPECIALTIES ── */
+  .specialties { background: var(--sky); }
+  .specialties-header { max-width: 1100px; margin: 0 auto 3rem; }
+  .spec-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem; max-width: 1100px; margin: 0 auto;
+  }
+  .spec-item {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.25rem 1.5rem;
+    display: flex; align-items: center; gap: 0.75rem;
+    font-size: 0.92rem; font-weight: 500; color: var(--navy);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .spec-item:hover { border-color: var(--blue); background: var(--sky); }
+  .spec-icon { font-size: 1.25rem; }
 
-    /* CTA */
-    .cta-section { background: var(--brown); }
-    .cta-section h2 { color: var(--white); margin-bottom: 0.8rem; }
-    .cta-section p { color: rgba(255,255,255,0.8); margin-bottom: 2rem; }
-    .cta-section .btn-primary { background: var(--white); color: var(--brown); border-color: var(--white); }
-    .cta-section .btn-primary:hover { background: var(--cream); border-color: var(--cream); }
+  /* ── CONTACT ── */
+  .contact { background: var(--navy); }
+  .contact-inner {
+    max-width: 700px; margin: 0 auto; text-align: center;
+  }
+  .contact .section-label { color: var(--steel); }
+  .contact h2 { color: var(--white); margin-bottom: 1rem; }
+  .contact p { color: rgba(255,255,255,0.65); margin-bottom: 2.5rem; font-size: 1rem; }
+  .contact-cards {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+  .contact-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px; padding: 1.25rem 1.75rem;
+    color: var(--white); text-align: center; min-width: 160px;
+  }
+  .contact-card-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .contact-card-label {
+    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.45); margin-bottom: 0.3rem;
+  }
+  .contact-card-value { font-size: 0.92rem; font-weight: 500; }
+  .contact .btn-primary { font-size: 1rem; padding: 1rem 2.5rem; }
 
-    /* FOOTER */
-    .footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 3rem 0 1.5rem; }
-    .footer-inner { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 2rem; font-size: 0.9rem; line-height: 1.9; }
-    .footer-inner strong { color: var(--white); }
-    .footer-inner a { color: rgba(255,255,255,0.7); cursor: pointer; }
-    .footer-inner a:hover { color: var(--tan); text-decoration: none; }
-    .footer-copy { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; text-align: center; font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+  /* ── FOOTER ── */
+  footer {
+    background: #0F2234;
+    padding: 2rem 6%; text-align: center;
+    color: rgba(255,255,255,0.35); font-size: 0.82rem;
+  }
+  footer span { color: var(--steel); }
 
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .nav-links { display: none; flex-direction: column; position: absolute; top: 60px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 2rem; gap: 1rem; }
-      .nav-links.open { display: flex; }
-      .nav-toggle { display: block; }
-      .nav { position: relative; }
-      .two-col { grid-template-columns: 1fr; gap: 2.5rem; }
-      .intro-stats { flex-direction: row; }
-      .cards { grid-template-columns: 1fr; }
-      .reviews-grid { grid-template-columns: 1fr; }
-      .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-      .form-row { grid-template-columns: 1fr; }
-      .footer-inner { grid-template-columns: 1fr; gap: 1rem; }
-      .service-item { flex-direction: column; gap: 1rem; }
-    }
-  </style>
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-visual { aspect-ratio: 16/7; }
+    .stat { padding: 1.25rem 1.5rem; }
+    section { padding: 60px 5%; }
+  }
+</style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav class="nav">
-    <span class="nav-logo" onclick="showPage('home')">🐴 Lucky Foot</span>
-    <button class="nav-toggle" aria-label="menu" onclick="toggleMenu()">☰</button>
-    <ul class="nav-links" id="navLinks">
-      <li><a onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
-      <li><a onclick="showPage('services')" id="nav-services">Services</a></li>
-      <li><a onclick="showPage('reviews')" id="nav-reviews">Reviews</a></li>
-      <li><a onclick="showPage('contact')" id="nav-contact">Contact</a></li>
-    </ul>
-  </nav>
+<!-- NAV -->
+<nav>
+  <div class="logo">Abel <span>The Farrier</span></div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#specialties">Specialties</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Book Now</a>
+</nav>
 
-  <!-- ===== HOME PAGE ===== -->
-  <div class="page active" id="page-home">
-
-    <section class="hero">
-      <div class="hero-content">
-        <span class="hero-eyebrow">Monument, Colorado</span>
-        <h1>Your horse deserves the best ground to stand on.</h1>
-        <p>Expert hoof care from a farrier who shows up, listens, and puts your horse's comfort first.</p>
-        <div class="hero-actions">
-          <a onclick="showPage('contact')" class="btn btn-primary">Book an Appointment</a>
-          <a onclick="showPage('services')" class="btn btn-outline">Our Services</a>
-        </div>
-      </div>
-      <div class="hero-badge">
-        <span class="badge-stars">★★★★★</span>
-        <span class="badge-text">5.0 · 28 reviews on Google</span>
-      </div>
-    </section>
-
-    <section class="section intro">
-      <div class="container two-col">
-        <div class="intro-text">
-          <span class="label">About Mike</span>
-          <h2>Calm hands. Honest work. Healthy hooves.</h2>
-          <p>Hi, I'm Mike — the farrier behind Lucky Foot Hoof Care. I've been working with horses across Colorado Springs and Monument for years, and my approach has always been the same: quiet, practical, and focused on what's best for your horse.</p>
-          <p>Whether you're running barefoot or need therapeutic shoeing, I'll take the time to understand your horse's needs and communicate openly along the way.</p>
-          <a onclick="showPage('contact')" class="btn btn-primary" style="margin-top:1.5rem;cursor:pointer">Get in Touch</a>
-        </div>
-        <div class="intro-stats">
-          <div class="stat"><span class="stat-num">5.0</span><span class="stat-label">Google Rating</span></div>
-          <div class="stat"><span class="stat-num">28+</span><span class="stat-label">Happy Clients</span></div>
-          <div class="stat"><span class="stat-num">6</span><span class="stat-label">Days a Week</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section services-preview bg-light">
-      <div class="container">
-        <span class="label center">What We Do</span>
-        <h2 class="center">Services</h2>
-        <div class="cards">
-          <div class="card"><div class="card-icon">✂️</div><h3>Hoof Trimming</h3><p>Regular, precise trimming to encourage healthy growth and prevent cracks, splits, and imbalance.</p></div>
-          <div class="card"><div class="card-icon">🔨</div><h3>Shoeing</h3><p>Conventional, therapeutic, and custom shoeing solutions tailored to your horse's specific needs.</p></div>
-          <div class="card"><div class="card-icon">🩹</div><h3>Hoof Rehabilitation</h3><p>Specialized care for horses recovering from injuries, with vet coordination when needed.</p></div>
-        </div>
-        <div class="center" style="margin-top:2.5rem"><a onclick="showPage('services')" class="btn btn-outline" style="cursor:pointer">See All Services</a></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <span class="label center">From Our Clients</span>
-        <h2 class="center">What Horse Owners Say</h2>
-        <div class="reviews-grid">
-          <div class="review-card"><p>"Mike communicates well, shows up when he says he's going to, and is honest about what he sees. His goal is the comfort of the horse."</p><span class="reviewer">— Shire horse owner, Monument CO</span></div>
-          <div class="review-card"><p>"He is knowledgeable, honest, and puts the well-being of the horse and hoof above all else. Highly recommend for your shoeing needs."</p><span class="reviewer">— Long-time client</span></div>
-          <div class="review-card"><p>"Mike is amazing — so professional, skilled, kind, and friendly. I am so glad I found him for my ponies."</p><span class="reviewer">— Pony owner, Colorado Springs</span></div>
-        </div>
-        <div class="center" style="margin-top:2rem"><a onclick="showPage('reviews')" class="btn btn-outline" style="cursor:pointer">Read All Reviews</a></div>
-      </div>
-    </section>
-
-    <section class="section cta-section">
-      <div class="container center">
-        <h2>Ready to book an appointment?</h2>
-        <p>Serving Monument, Colorado Springs, and surrounding areas — Mon–Sat, 9am to 5pm.</p>
-        <a onclick="showPage('contact')" class="btn btn-primary" style="cursor:pointer">Contact Mike</a>
-      </div>
-    </section>
-
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Northern Colorado · LaSalle, CO</div>
+    <h1>Your Horse Deserves <em>Expert</em> Hoof Care</h1>
+    <p>Professional farrier services across Northern Colorado — from routine trims to corrective shoeing. I come to you.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Book an Appointment</a>
+      <a href="#services" class="btn-ghost">See Services</a>
+    </div>
   </div>
+</section>
 
-  <!-- ===== SERVICES PAGE ===== -->
-  <div class="page" id="page-services">
-
-    <section class="page-hero">
-      <div class="container">
-        <span class="label">What We Offer</span>
-        <h1>Farrier Services</h1>
-        <p>Comprehensive hoof care for horses of all ages, breeds, and needs — in Monument, Colorado Springs, and surrounding areas.</p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="service-item">
-          <div class="service-icon">✂️</div>
-          <div class="service-body">
-            <h2>Hoof Trimming</h2>
-            <p>Regular hoof trimming is one of the most important things you can do for your horse's long-term health. Mike provides precise, balanced trims that encourage correct hoof growth and prevent painful cracks and splits.</p>
-            <p>We work with horses of all breeds and temperaments, assessing each hoof individually rather than applying a one-size-fits-all approach.</p>
-          </div>
-        </div>
-        <div class="service-item">
-          <div class="service-icon">🔨</div>
-          <div class="service-body">
-            <h2>Shoeing</h2>
-            <p>We offer a full range of shoeing options:</p>
-            <ul class="service-list">
-              <li><strong>Conventional shoeing</strong> — standard steel or aluminium shoes for everyday use and performance</li>
-              <li><strong>Therapeutic shoeing</strong> — specialized shoes for horses with soundness issues, navicular syndrome, or laminitis</li>
-              <li><strong>Custom solutions</strong> — Mike fabricates and adapts shoes to match your horse's individual hoof shape</li>
-            </ul>
-          </div>
-        </div>
-        <div class="service-item">
-          <div class="service-icon">🩹</div>
-          <div class="service-body">
-            <h2>Hoof Rehabilitation</h2>
-            <p>If your horse has experienced hoof injuries or chronic lameness, we offer dedicated rehabilitation services aimed at restoring health and function over time.</p>
-            <p>Mike works closely with your veterinarian — including reviewing X-rays and coordinating on treatment plans — to make sure your horse gets the most consistent care possible.</p>
-          </div>
-        </div>
-        <div class="service-item">
-          <div class="service-icon">🐎</div>
-          <div class="service-body">
-            <h2>All Ages & Breeds</h2>
-            <p>From young horses just starting their hoof care journey to older horses with complex needs, Mike has experience with a wide range of ages and breeds — including draft breeds like Shires.</p>
-            <p>His calm, quiet approach keeps horses relaxed and makes the experience easier for both the horse and the owner.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section cta-section">
-      <div class="container center">
-        <h2>Not sure what your horse needs?</h2>
-        <p>Reach out and Mike will be happy to talk through what's best for your horse before booking.</p>
-        <a onclick="showPage('contact')" class="btn btn-primary" style="cursor:pointer">Get in Touch</a>
-      </div>
-    </section>
-
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">5+</div>
+    <div class="stat-label">Years Experience</div>
   </div>
-
-  <!-- ===== REVIEWS PAGE ===== -->
-  <div class="page" id="page-reviews">
-
-    <section class="page-hero">
-      <div class="container">
-        <span class="label">Client Feedback</span>
-        <h1>What Horse Owners Say</h1>
-        <div class="rating-summary">
-          <span class="big-stars">★★★★★</span>
-          <span class="big-rating">5.0</span>
-          <span class="rating-meta">based on 28 Google reviews</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="reviews-full">
-          <div class="review-card-full">
-            <div class="review-stars">★★★★★</div>
-            <p>"After struggling to find a farrier for our Shire herd, I'm so grateful to say we had Mike come out and he did a phenomenal job. He's quiet, calm, and practical with his trimmings. We run barefoot here, and we've had farriers in the past trim them so short they were lame the next day. Mike communicates well, shows up when he says he's going to, and is honest with what he sees. Most importantly, his goal is the comfort of the horse. Highly recommend!"</p>
-            <span class="reviewer">— Shire horse owner, Monument CO</span>
-          </div>
-          <div class="review-card-full">
-            <div class="review-stars">★★★★★</div>
-            <p>"Mike with Lucky Foot Care is a knowledgeable, honest farrier who puts the well-being of the horse and hoof above all else. He does a great job with a wide range of horse ages and is always professional. Highly recommend him for your shoeing needs."</p>
-            <span class="reviewer">— Long-time client</span>
-          </div>
-          <div class="review-card-full">
-            <div class="review-stars">★★★★★</div>
-            <p>"We are fortunate to have Mike as our farrier. He is calm, patient and his expertise is obvious. We also acquired a horse from him that he personally trained — it has been an amazing experience. The horse is gentle and has an amazing disposition."</p>
-            <span class="reviewer">— Horse owner, Colorado Springs</span>
-          </div>
-          <div class="review-card-full">
-            <div class="review-stars">★★★★★</div>
-            <p>"We've been working on soundness issues and I can't thank Mike enough. He asked for X-rays from my vet and even had a phone conversation with my vet to coordinate care. Now my horse is in his memory foam sneakers and we are both so happy! Mike is the kindest person and is open about his shoeing process."</p>
-            <span class="reviewer">— Client working on soundness issues</span>
-          </div>
-          <div class="review-card-full">
-            <div class="review-stars">★★★★★</div>
-            <p>"Mike is amazing. So professional, skilled, kind, and friendly. He is the best. I am so glad I found him for my ponies. Thank you!"</p>
-            <span class="reviewer">— Pony owner</span>
-          </div>
-        </div>
-        <div class="center" style="margin-top:3rem">
-          <a href="https://maps.google.com/?cid=2899adfc8a3c3c72" target="_blank" class="btn btn-outline">See All Reviews on Google ↗</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section cta-section">
-      <div class="container center">
-        <h2>Ready to experience the difference?</h2>
-        <p>Join the growing list of horse owners who trust Mike with their herd.</p>
-        <a onclick="showPage('contact')" class="btn btn-primary" style="cursor:pointer">Book an Appointment</a>
-      </div>
-    </section>
-
+  <div class="stat">
+    <div class="stat-num">4</div>
+    <div class="stat-label">Disciplines Served</div>
   </div>
-
-  <!-- ===== CONTACT PAGE ===== -->
-  <div class="page" id="page-contact">
-
-    <section class="page-hero">
-      <div class="container">
-        <span class="label">Get in Touch</span>
-        <h1>Book an Appointment</h1>
-        <p>Have a question or ready to schedule? Reach out and Mike will get back to you as soon as possible.</p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container contact-layout">
-        <div class="contact-info">
-          <h2>Contact Details</h2>
-          <div class="contact-item">
-            <span class="contact-icon">📞</span>
-            <div><strong>Phone</strong><a href="tel:+17194338367">(719) 433-8367</a></div>
-          </div>
-          <div class="contact-item">
-            <span class="contact-icon">📍</span>
-            <div><strong>Location</strong>17955 Sierra Way<br/>Monument, CO 80132</div>
-          </div>
-          <div class="contact-item">
-            <span class="contact-icon">🕐</span>
-            <div><strong>Hours</strong>Monday – Saturday: 9:00am – 5:00pm<br/>Sunday: Closed</div>
-          </div>
-          <div class="contact-item">
-            <span class="contact-icon">🗺️</span>
-            <div><strong>Service Area</strong>Monument, Colorado Springs,<br/>and surrounding areas</div>
-          </div>
-          <a href="https://maps.google.com/?q=Lucky+Foot+Hoof+Care+Monument+CO" target="_blank" class="btn btn-outline" style="margin-top:1.5rem">View on Google Maps ↗</a>
-        </div>
-
-        <div class="contact-form-wrap">
-          <h2>Send a Message</h2>
-          <div id="formSuccess" class="form-success hidden">✅ Thanks! Your message has been sent. Mike will get back to you soon.</div>
-          <div class="contact-form" id="contactForm">
-            <div class="form-row">
-              <div class="form-group"><label for="name">Your Name</label><input type="text" id="name" placeholder="Jane Smith" /></div>
-              <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" placeholder="(719) 000-0000" /></div>
-            </div>
-            <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" placeholder="you@example.com" /></div>
-            <div class="form-group">
-              <label for="service">Service Needed</label>
-              <select id="service">
-                <option value="">Select a service...</option>
-                <option>Hoof Trimming</option>
-                <option>Shoeing (Conventional)</option>
-                <option>Shoeing (Therapeutic)</option>
-                <option>Hoof Rehabilitation</option>
-                <option>Not sure — need advice</option>
-              </select>
-            </div>
-            <div class="form-group"><label for="message">Message</label><textarea id="message" rows="5" placeholder="Tell Mike about your horse and what you need..."></textarea></div>
-            <button class="btn btn-primary full-width" onclick="submitForm()">Send Message</button>
-            <p class="form-note">Or call directly at <a href="tel:+17194338367">(719) 433-8367</a></p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="map-section">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3116.4!2d-104.8159!3d39.0919!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876cb375c157a199%3A0x2839adfc8a3c3c72!2sLucky%20Foot%20Hoof%20Care!5e0!3m2!1sen!2sus!4v1" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Lucky Foot Hoof Care location"></iframe>
-    </section>
-
+  <div class="stat">
+    <div class="stat-num">100%</div>
+    <div class="stat-label">Mobile — I Come to You</div>
   </div>
+  <div class="stat">
+    <div class="stat-num">All</div>
+    <div class="stat-label">Breeds & Temperaments</div>
+  </div>
+</div>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div><strong>🐴 Lucky Foot Hoof Care</strong><br/>17955 Sierra Way, Monument, CO 80132</div>
-      <div><a href="tel:+17194338367">(719) 433-8367</a><br/>Mon–Sat: 9am – 5pm</div>
-      <div>
-        <a onclick="showPage('services')">Services</a> &nbsp;·&nbsp;
-        <a onclick="showPage('reviews')">Reviews</a> &nbsp;·&nbsp;
-        <a onclick="showPage('contact')">Contact</a>
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-header">
+    <div class="section-label">What I Offer</div>
+    <h2>Hoof Care Built Around Your Horse</h2>
+    <p class="section-intro">Every horse is different. I tailor every visit to what your horse actually needs — no shortcuts, no guesswork.</p>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🔨</div>
+      <h3>Horseshoeing</h3>
+      <p>Custom shoeing for performance, protection, and discipline-specific needs. Hot or cold shoeing available.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">✂️</div>
+      <h3>Hoof Trimming</h3>
+      <p>Balanced trims to maintain natural hoof health and support proper movement — every 6–8 weeks.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🩺</div>
+      <h3>Corrective Shoeing</h3>
+      <p>Targeted solutions for lameness, imbalance, and structural issues to restore comfort and soundness.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🌿</div>
+      <h3>Barefoot Trimming</h3>
+      <p>Natural barefoot trimming for horses that perform best without shoes — with careful attention to balance.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-visual">🐎</div>
+    <div class="about-text">
+      <div class="section-label">About Abel</div>
+      <h2>Hands-On Care, Every Single Visit</h2>
+      <p>With over half a decade of hands-on experience, I've worked with horses across a wide range of disciplines and temperaments — from spirited barrel racers to gentle trail horses.</p>
+      <p>I'm based in LaSalle, CO, and serve Northern Colorado and surrounding areas. Every appointment I come to you — no hauling, no stress for your horse.</p>
+      <div class="traits">
+        <div class="trait"><div class="trait-dot"></div>Gentle and patient with all horses</div>
+        <div class="trait"><div class="trait-dot"></div>Always on time and professional</div>
+        <div class="trait"><div class="trait-dot"></div>Flexible scheduling around your routine</div>
+        <div class="trait"><div class="trait-dot"></div>Clear communication with every owner</div>
       </div>
     </div>
-    <div class="footer-copy">© 2025 Lucky Foot Hoof Care. All rights reserved.</div>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    function showPage(name) {
-      // Hide all pages
-      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-      // Show target
-      document.getElementById('page-' + name).classList.add('active');
-      // Update nav
-      document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-      document.getElementById('nav-' + name).classList.add('active');
-      // Close mobile menu & scroll top
-      document.getElementById('navLinks').classList.remove('open');
-      window.scrollTo(0, 0);
-    }
+<!-- SPECIALTIES -->
+<section class="specialties" id="specialties">
+  <div class="specialties-header">
+    <div class="section-label">Disciplines</div>
+    <h2>Built for Every Rider, Every Horse</h2>
+  </div>
+  <div class="spec-grid">
+    <div class="spec-item"><span class="spec-icon">🏇</span> Barrel Horses</div>
+    <div class="spec-item"><span class="spec-icon">🤸</span> Hunter / Jumpers</div>
+    <div class="spec-item"><span class="spec-icon">🐴</span> Trail & Pleasure</div>
+    <div class="spec-item"><span class="spec-icon">🐏</span> Ponies & Donkeys</div>
+    <div class="spec-item"><span class="spec-icon">👟</span> All Breeds</div>
+    <div class="spec-item"><span class="spec-icon">💙</span> All Temperaments</div>
+  </div>
+</section>
 
-    function toggleMenu() {
-      document.getElementById('navLinks').classList.toggle('open');
-    }
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="section-label">Get In Touch</div>
+    <h2>Ready to Book an Appointment?</h2>
+    <p>Send me a message to check availability and schedule your visit. I'll come to your barn, your pasture, wherever works best for you and your horse.</p>
+    <div class="contact-cards">
+      <div class="contact-card">
+        <div class="contact-card-icon">📍</div>
+        <div class="contact-card-label">Location</div>
+        <div class="contact-card-value">LaSalle, CO<br>Northern Colorado</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">💬</div>
+        <div class="contact-card-label">How to Book</div>
+        <div class="contact-card-value">Send a PM on<br>Yelp or Google</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">🕐</div>
+        <div class="contact-card-label">Scheduling</div>
+        <div class="contact-card-value">Flexible Hours<br>I Come to You</div>
+      </div>
+    </div>
+    <a href="https://www.yelp.com/biz/abel-the-farrier-lasalle" target="_blank" class="btn-primary">Message on Yelp</a>
+  </div>
+</section>
 
-    function submitForm() {
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const message = document.getElementById('message').value;
-      if (!name || !email || !message) {
-        alert('Please fill in your name, email, and message.');
-        return;
-      }
-      document.getElementById('contactForm').classList.add('hidden');
-      document.getElementById('formSuccess').classList.remove('hidden');
-    }
-  </script>
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <span>Abel The Farrier</span> · LaSalle, Colorado · Northern Colorado Farrier Services</p>
+</footer>
+
 </body>
 </html>
